@@ -106,7 +106,9 @@ function createCard(user) {
   usernameP.textContent = user.login;
 
   let locationP = create('p');
+  if (user.location) {
   locationP.textContent = `Location: ${user.location}`;
+  }
 
   let profileP = create('p');
   let profileA = create('a');
@@ -121,9 +123,31 @@ function createCard(user) {
   followingP.textContent = `Following: ${user.following}`;
 
   let bioP = create('p');
+  if (user.bio) {
   bioP.textContent = `Bio: ${user.bio}`;
+  }
 
-  cardInfoDiv.append(nameH3, usernameP, locationP, profileP, followersP, followingP, bioP);
+  let emailP = create('p');
+  emailP.textContent = user.email;
+
+  let companyP = create('p');
+  companyP.textContent = user.company;
+
+  let hireP = create('p');
+  let answer = 'yes';
+  if (user.hireable === false) {
+    answer = 'no';
+  }
+  hireP.textContent = "Hireable: " + answer;
+
+  let dateP = create('p');
+  let dateObj = new Date(user.created_at);
+  var months = ["Jan", "Feb", "Mar", "Apr", "May", "June", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  let myFormattedDate = months[dateObj.getMonth()] + " " + dateObj.getFullYear();
+  dateP.textContent = "GitHub user since " + myFormattedDate;
+
+  cardInfoDiv.append(nameH3, usernameP, locationP, profileP, 
+    followersP, followingP, bioP, emailP, companyP, hireP, dateP);
   cardDiv.append(cardImg, cardInfoDiv);
   //console.log(cardDiv);
   return cardDiv;
