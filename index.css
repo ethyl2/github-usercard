@@ -97,8 +97,21 @@ body {
   display: flex;
   border-radius: 5px;
   box-shadow: 0 1px 6px -2px #000;
-  background-color: #FFF;
+  background-color: white;
   margin-bottom: 30px;
+}
+
+.card .card-info {
+  background-color: #C5E0DC;
+  height: 150px;
+  width: 80%;
+  overflow-y: hidden;
+  overflow-x: auto;
+  padding: 0.5rem;
+}
+
+.card .card-expand {
+  height: auto;
 }
 
 .card img {
@@ -113,8 +126,9 @@ body {
 }
 
 .card p {
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   margin-bottom: 3px;
+  line-height: 1.5rem;
 }
 
 .card .username {
@@ -123,5 +137,42 @@ body {
   margin: 3px 0 10px;
 }
 
+.top-card .name {
+  color: #BA1434;
+  
+}
+.expandButton {
+  background: #BA1434;
+  color: white; 
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 0.25rem;
+}
 
+.calendar-container {
+  background:#BA1434;
+  display: flex;
+  flex-flow: column nowrap;
+}
+.calendar-container h1 {
+  font-size: 3rem;
+  margin: 2rem;
+  text-align: center;
+  color: white;
+}
+.calendar {
+  padding: 2rem;
+  background: white;
+}
 
+.input-section {
+  margin: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.input-section h2 {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
