@@ -97,6 +97,7 @@ function createCard(user) {
   cardImg.src = user.avatar_url;
 
   let cardInfoDiv = create('div');
+  cardInfoDiv.classList.add('card-info');
   let nameH3 = create('h3');
   nameH3.classList.add('name');
   nameH3.textContent = user.name;
@@ -146,9 +147,26 @@ function createCard(user) {
   let myFormattedDate = months[dateObj.getMonth()] + " " + dateObj.getFullYear();
   dateP.textContent = "GitHub user since " + myFormattedDate;
 
+  let btnSpan = create('span');
+  btnSpan.classList.add('expandButton');
+  btnSpan.textContent = '⮋';
+  let arrow = "down";
+  btnSpan.addEventListener('click', () => {
+    cardInfoDiv.classList.toggle('card-expand');
+    if (arrow === 'down') {
+      //change it to up when clicked
+      btnSpan.textContent = '⮉';
+      arrow = "up";
+    } else {
+      // change it to down when clicked
+      btnSpan.textContent = '⮋';
+      arrow = "down";
+    }
+  })
+
   cardInfoDiv.append(nameH3, usernameP, locationP, profileP, 
     followersP, followingP, bioP, emailP, companyP, hireP, dateP);
-  cardDiv.append(cardImg, cardInfoDiv);
+  cardDiv.append(cardImg, cardInfoDiv, btnSpan);
   //console.log(cardDiv);
   return cardDiv;
 }
