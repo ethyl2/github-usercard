@@ -215,6 +215,7 @@ function displayFollowers(user) {
   .then( response => {
     //console.log(response);
     let userCard = createCard(response.data);
+    userCard.classList.add('top-card');
     cardsDiv.appendChild(userCard);
     let followersUrl = response.data.followers_url;
     //console.log(followersUrl);
@@ -231,4 +232,12 @@ function displayFollowers(user) {
 displayFollowers('ethyl2');
 
 // Stretch Goal: Add your GitHub contribution graph
-new GitHubCalendar(".calendar", "ethyl2", {responsive: true});
+let mainCalendar = new GitHubCalendar(".calendar", "ethyl2", {responsive: true});
+let calendarHeader = document.querySelector(".calendar-container h1");
+const submitBtn = document.querySelector('#submit-btn');
+submitBtn.addEventListener('click', function(event) {
+  let username = document.getElementById("user-input-username").value;
+  console.log(username);
+  calendarHeader.textContent = username;
+  mainCalendar = new GitHubCalendar(".calendar", username, {responsive: true});
+});

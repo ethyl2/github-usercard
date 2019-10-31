@@ -137,6 +137,10 @@ body {
   margin: 3px 0 10px;
 }
 
+.top-card .name {
+  color: #BA1434;
+  
+}
 .expandButton {
   background: #BA1434;
   color: white; 
@@ -161,3 +165,14 @@ body {
   background: white;
 }
 
+.input-section {
+  margin: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.input-section h2 {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
