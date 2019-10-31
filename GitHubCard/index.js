@@ -236,12 +236,25 @@ let mainCalendar = new GitHubCalendar(".calendar", "ethyl2", {responsive: true})
 let calendarHeader = document.querySelector(".calendar-container h1");
 const submitBtn = document.querySelector('#submit-btn');
 
+// Extra Stretch: When a user inputs a GitHub username in the input field and clicks
+// the submit button, the page is repopulated with that username's followers and calendar
 submitBtn.addEventListener('click', function(event) {
   let username = document.getElementById("user-input-username").value;
   console.log(username);
   calendarHeader.textContent = username;
   mainCalendar = new GitHubCalendar(".calendar", username, {responsive: true});
-  let topCard = document.querySelector(".top-card");
-  topCard.classList.remove('top-card');
+  //let topCard = document.querySelector(".top-card");
+  //topCard.classList.remove('top-card');
+  deleteChildren(cardsDiv);
+
   displayFollowers(username);
 });
+
+function deleteChildren(parentEl) { 
+  //parentEl.firstElementChild can be used. 
+  var child = parentEl.lastElementChild;  
+  while (child) { 
+      parentEl.removeChild(child); 
+      child = parentEl.lastElementChild; 
+  } 
+} 
