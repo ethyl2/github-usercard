@@ -169,10 +169,15 @@ function createCard(user) {
     }
   })
 
+  let calendarDiv = create('div');
+  calendarDiv.classList.add('card-calendar');
+  new GitHubCalendar(calendarDiv, user.login, {responsive: true, global_stats: false});
+  
   cardInfoDiv.append(nameH3, usernameP, locationP, profileP, 
-    followersP, followingP, bioP, emailP, companyP, hireP, dateP);
+    followersP, followingP, bioP, emailP, companyP, hireP, dateP, calendarDiv);
   cardDiv.append(cardImg, cardInfoDiv, btnSpan);
   //console.log(cardDiv);
+
   return cardDiv;
 }
 /* List of LS Instructors Github username's: 
@@ -225,4 +230,5 @@ function displayFollowers(user) {
 
 displayFollowers('ethyl2');
 
+// Stretch Goal: Add your GitHub contribution graph
 new GitHubCalendar(".calendar", "ethyl2", {responsive: true});
