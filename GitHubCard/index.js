@@ -147,6 +147,11 @@ function createCard(user) {
   let myFormattedDate = months[dateObj.getMonth()] + " " + dateObj.getFullYear();
   dateP.textContent = "GitHub user since " + myFormattedDate;
 
+
+  /* Stretch Goal #2: Add more info as an expanding card. 
+  Create some new CSS and a button that expands and 
+  contracts the card.*/
+
   let btnSpan = create('span');
   btnSpan.classList.add('expandButton');
   btnSpan.textContent = '⮋';
@@ -219,3 +224,5 @@ function displayFollowers(user) {
 }
 
 displayFollowers('ethyl2');
+
+new GitHubCalendar(".calendar", "ethyl2", {responsive: true});

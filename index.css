@@ -145,4 +145,19 @@ body {
   padding: 0.25rem;
 }
 
+.calendar-container {
+  background:#BA1434;
+  display: flex;
+  flex-flow: column nowrap;
+}
+.calendar-container h1 {
+  font-size: 3rem;
+  margin: 2rem;
+  text-align: center;
+  color: white;
+}
+.calendar {
+  padding: 2rem;
+  background: white;
+}
 
