@@ -235,9 +235,13 @@ displayFollowers('ethyl2');
 let mainCalendar = new GitHubCalendar(".calendar", "ethyl2", {responsive: true});
 let calendarHeader = document.querySelector(".calendar-container h1");
 const submitBtn = document.querySelector('#submit-btn');
+
 submitBtn.addEventListener('click', function(event) {
   let username = document.getElementById("user-input-username").value;
   console.log(username);
   calendarHeader.textContent = username;
   mainCalendar = new GitHubCalendar(".calendar", username, {responsive: true});
+  let topCard = document.querySelector(".top-card");
+  topCard.classList.remove('top-card');
+  displayFollowers(username);
 });
